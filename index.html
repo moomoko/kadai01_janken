@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>だいちゃんのじゃんけんアプリ</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <audio src="./img/ゆったりお散歩.mp3" autoplay></audio>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけんしよう！</h1>
+        <p id="touch_me">〜ぼくにタッチしてね〜</p>
+    </header>
+
+    <main>
+        <p id="message">いくよ〜！じゃんけん・・・</p>
+        <div id="pc_hands"></div>
+        <ul>
+            <li id="gu_btn"><img src="./img/ga2.png" alt="グー！" class="default"><img src="./img/ga5.png" alt="グー！" class="hover"></li>
+            <li id="cho_btn"><img src="./img/ga3.png" alt="チョキ！" class="default"><img src="./img/ga4.png" alt="チョキ！" class="hover"></li>
+            <li id="par_btn"><img src="./img/ga1.png" alt="パー！" class="default"><img src="./img/ga6.png" alt="パー！" class="hover"></li>
+        </ul>
+        
+        <div id="judgment">どうかな？</div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+    $(document).ready(function(){
+        function getComputerChoice(){
+            const choices=["グー！","チョキ！","パー！"];
+            const randomIndex=Math.floor(Math.random()*choices.length);
+            return choices[randomIndex];
+    }
+
+        function determineWinner(playerChoice,computerChoice){
+            if(playerChoice===computerChoice){
+                return"引き分け！もう1回";
+            }else if((playerChoice==="グー！"&&computerChoice==="チョキ！")||
+                    (playerChoice==="チョキ！"&&computerChoice==="パー！")||
+                    (playerChoice==="パー！"&&computerChoice==="グー！")
+            )   {
+
+                confetti({
+	       particleCount: 100,
+	       spread: 70,
+	       origin: { y: 0.6 }
+	     });
+
+                return"あなたの勝ち！";
+           
+            }else {
+                return"あなたの負け...";
+            }
+                    
+        }
+
+
+    $("#gu_btn").on("click",function(){
+        const playerChoice="グー！";
+        const computerChoice=getComputerChoice();
+        const result=determineWinner(playerChoice,computerChoice);
+        $("#pc_hands").text(computerChoice);
+        $("#judgment").text(result);
+    });
+
+    $("#cho_btn").on("click",function(){
+        const playerChoice="チョキ！";
+        const computerChoice=getComputerChoice();
+        const result=determineWinner(playerChoice,computerChoice);
+        $("#pc_hands").text(computerChoice);
+        $("#judgment").text(result);
+    });
+
+    $("#par_btn").on("click",function(){
+        const playerChoice="パー！";
+        const computerChoice=getComputerChoice();
+        const result=determineWinner(playerChoice,computerChoice);
+        $("#pc_hands").text(computerChoice);
+        $("#judgment").text(result);
+    });
+
+});
+    </script>
+
+
+
+
+</body>
+</html>

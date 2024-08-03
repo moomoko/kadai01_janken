@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+body{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+    background-color: #ffe4e1;
+}
+header{
+    text-align: center;
+    padding: 0.15rem 2rem;
+    background-color: #ffe4e1;
+    background-image:
+        linear-gradient(90deg, rgba(255,248,247, .3) 50%, transparent 50%),
+        linear-gradient(rgba(255,248,247, .3) 50%, transparent 50%);
+    background-size: 80px 80px;
+}
+
+#touch_me{
+    animation:blink 2s ease-in-out infinite;
+    margin-top:-40px;
+    margin-bottom: -85px;
+    font-size: 35px;
+}
+
+#message{
+    margin-top: 15px;
+    margin-bottom: -145px;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+    
+}
+
+
+main{
+    border-bottom:1px solid #ccc;
+}
+footer{
+    background-color: #fff;
+    border-top: 1px solid #000000;
+    text-align: center;
+}
+p{
+    text-align: center;
+    height:200px;
+}
+ul{
+    padding: 0;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    list-style-type:none;
+    background-color: #ffedea;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    transition:transform 0.3s ease;
+}
+
+
+li img.default{
+    display:block;
+    width: 600px;
+    margin-top: -70px;
+    margin-left: -40px;
+}
+
+li img.hover{
+    display: none;
+    width: 600px;
+    margin-top: -70px;
+    margin-left: -40px;
+}
+
+li:hover img.default{
+    display: none;
+}
+
+li:hover img.hover{
+    display: block;
+}
+
+#message{
+    font-size: 50px;
+    text-align: center;
+    background-color: #ffe4e1;
+}
+
+#judgment{
+    font-size: 50px;
+    text-align: center;
+    margin-top: -30px;
+    background-color: #ffe4e1;
+}
+
+#pc_hands{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: -20px;
+}
